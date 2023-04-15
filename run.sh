@@ -11,7 +11,7 @@ aws ssm create-activation \
 --default-instance-name bastion \
 --iam-role ${SSM_SERVICE_ROLE_NAME} \
 --registration-limit 1 > ${SSM_ACTIVATION_FILE} \
---tags Key=Type,Value=Bastion
+--tags Key=Type,Value=Bastion \
 --region ${AWS_REGION}
 
 SSM_ACTIVATION_ID=`cat ${SSM_ACTIVATION_FILE} | jq -r .ActivationId`
